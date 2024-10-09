@@ -75,7 +75,6 @@
     $('.btn-play').click(function () {
         $videoSrc = $(this).data("src");
     });
-    console.log($videoSrc);
     $('#videoModal').on('shown.bs.modal', function (e) {
         $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
     })
@@ -124,3 +123,46 @@
     
 })(jQuery);
 
+$(document).ready(function() {
+    const modalTriggerButtons = document.querySelectorAll('[data-modal-target]');
+    modalTriggerButtons.forEach(elem => {
+        elem.addEventListener('click', function() {
+            const targetContainer = elem.closest('[data-project-title]');
+            const targetSelector = elem.getAttribute('data-modal-target');
+            const targetModal = targetContainer.querySelector('.modal');
+            const titleText = targetContainer.getAttribute('data-project-title');
+            const targetTitle = elem.closest('[data-project-title]').getAttribute('data-project-title');
+            console.log('modal debug', elem, targetSelector, titleText);
+            const modalTitle = targetModal.querySelector('.modal-title');
+            modalTitle.innerHTML = titleText;
+            modalTitle.classList.add('text-capitalize');
+
+            // reset swiper thumbnails di dalam popup modal
+            swiperThumbs.removeAllSlides();
+            // dapatkan data slide yg perlu ditampilkan di popup modal
+            // sesuai dgn menu yg dipilih
+            const slideData = targetContainer.querySelectorAll('input[type="hidden"]');
+            // setup isi swiper thumbnails
+            slideData.forEach(item => {
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide', 'text-center');
+                slide.innerHTML = `<img src="${item.value}" style="max-height:8rem">`;
+                swiperThumbs.appendSlide(slide);
+            });
+            // reset swiper di dalam popup modal
+            swiperMain.removeAllSlides();
+            // setup isi swiper utama
+            slideData.forEach(item => {
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide', 'text-center');
+                slide.innerHTML = `<img src="${item.value}" style="max-height:60vh">`;
+                swiperMain.appendSlide(slide);
+            });
+
+            // inisialisasi dan aplikasikan popup modal gallery scr manual
+            // utk menghindari bug swiperjs ketika digabungkan dgn popup modal
+            const menuModal = new bootstrap.Modal(targetSelector);
+            menuModal.toggle();
+        });
+    });
+})

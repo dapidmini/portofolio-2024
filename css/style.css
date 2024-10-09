@@ -6,6 +6,8 @@
   --dark: #12141d;
   --main-blue: #007bff;
   --main-lighter-blue: #4fa4ff;
+
+  --swiper-navigation-btn-padding: 20px;
 }
 
 body {
@@ -23,6 +25,14 @@ body {
 .my-6 {
   margin-top: 6rem;
   margin-bottom: 6rem;
+}
+
+.fs-small {
+  font-size: .8rem;
+}
+
+.fs-smaller {
+  font-size: .6rem;
 }
 
 .py-6 {
@@ -279,6 +289,19 @@ body {
 .portfolio-item:hover .portfolio-btn {
   opacity: 1;
   padding-bottom: 30px !important;
+}
+
+.portfolio-contaner .modal .swiper {
+  text-align: center;
+}
+
+.portfolio-container .modal .swiper-button-next, .swiper-button-prev {
+  width: calc(var(--swiper-navigation-size) + var(--swiper-navigation-btn-padding));
+  height: calc(var(--swiper-navigation-size) + var(--swiper-navigation-btn-padding));
+  border-radius: 50%; /* Creates a circular shape */
+  background-color: #fff; /* Change the background color as needed */
+  color: #000; /* Change the text color as needed */
+  border: 2px solid #ccc; /* Add a border if desired */
 }
 
 /*** Team ***/
