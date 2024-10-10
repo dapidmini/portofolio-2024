@@ -6,6 +6,7 @@
   --dark: #12141d;
   --main-blue: #007bff;
   --main-lighter-blue: #4fa4ff;
+  --grey: #5a5a5a;
 
   --swiper-navigation-btn-padding: 20px;
 }
@@ -295,13 +296,32 @@ body {
   text-align: center;
 }
 
-.portfolio-container .modal .swiper-button-next, .swiper-button-prev {
+.swiper-button-next, .swiper-button-prev {
   width: calc(var(--swiper-navigation-size) + var(--swiper-navigation-btn-padding));
   height: calc(var(--swiper-navigation-size) + var(--swiper-navigation-btn-padding));
   border-radius: 50%; /* Creates a circular shape */
-  background-color: #fff; /* Change the background color as needed */
-  color: #000; /* Change the text color as needed */
+  background-color: var(--grey); /* Change the background color as needed */
+  color: #fff; /* Change the text color as needed */
+  font-weight: 700;
   border: 2px solid #ccc; /* Add a border if desired */
+}
+
+/* portfolio pake splidejs */
+/* .carousel-splidejs .thumbnails {
+  display: flex;
+  margin: 1rem auto 0;
+  padding: 0;
+  justify-content: center;
+} */
+
+.carousel-splidejs .thumbnail {
+  width: 70px;
+  height: 70px;
+}
+
+.carousel-splidejs .thumbnail img {
+  width: 100%;
+  height: auto;
 }
 
 /*** Team ***/

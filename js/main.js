@@ -120,49 +120,111 @@
         loop: true,
     });
 
-    
-})(jQuery);
+    // const modalTriggerButtons = document.querySelectorAll('[data-modal-target]');
+    // modalTriggerButtons.forEach(elem => {
+    //     elem.addEventListener('click', function() {
+    //         // inisialisasi dan aplikasikan popup modal gallery scr manual
+    //         // utk menghindari bug swiperjs ketika digabungkan dgn popup modal
+    //         const myModal = new bootstrap.Modal('#modal-project');
+    //         myModal.toggle();
 
-$(document).ready(function() {
+    //         // carousel splidejs
+    //         var splide = new Splide( '.main-carousel', {
+    //             pagination: false,
+    //         });
+
+    //         var thumbnails = document.getElementsByClassName( 'thumbnail' );
+    //         var current;
+
+    //         console.log('thumbnails', thumbnails);
+    //         for ( var i = 0; i < thumbnails.length; i++ ) {
+    //             initThumbnail( thumbnails[ i ], i );
+    //         }
+
+    //         function initThumbnail( thumbnail, index ) {
+    //             thumbnail.addEventListener( 'click', function () {
+    //                 splide.go( index );
+    //             });
+    //         }
+
+    //         splide.on( 'mounted move', function () {
+    //             var thumbnail = thumbnails[ splide.index ];
+              
+    //             if ( thumbnail ) {
+    //                 if ( current ) {
+    //                     current.classList.remove( 'is-active' );
+    //                 }
+                
+    //                 thumbnail.classList.add( 'is-active' );
+    //                 current = thumbnail;
+    //             }
+    //         });
+
+    //         splide.mount();
+    //     });
+    // });
+
+    var swiperMain = new Swiper(".swiper-main", {
+        slidesPerView: 1,
+        autoplay: false,
+        loop: true,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+    var swiperThumbs = new Swiper(".swiper-thumbs", {
+        slidesPerView: 9,
+        autoplay: false,
+        loop: true,
+        spaceBetween: 10,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+    console.log('after init swiper main', swiperMain, swiperThumbs);
+    
     const modalTriggerButtons = document.querySelectorAll('[data-modal-target]');
     modalTriggerButtons.forEach(elem => {
         elem.addEventListener('click', function() {
-            const targetContainer = elem.closest('[data-project-title]');
-            const targetSelector = elem.getAttribute('data-modal-target');
-            const targetModal = targetContainer.querySelector('.modal');
-            const titleText = targetContainer.getAttribute('data-project-title');
-            const targetTitle = elem.closest('[data-project-title]').getAttribute('data-project-title');
-            console.log('modal debug', elem, targetSelector, titleText);
-            const modalTitle = targetModal.querySelector('.modal-title');
-            modalTitle.innerHTML = titleText;
+            const wrapper = elem.closest('[data-project-title]');
+            const projectTitle = wrapper.getAttribute('data-project-title');
+            const modalElem = document.querySelector('.modal#modal-project');
+            const modalTitle = modalElem.querySelector('.modal-title');
+            modalTitle.innerHTML = projectTitle;
             modalTitle.classList.add('text-capitalize');
+            console.log('debug 1', swiperMain);
 
-            // reset swiper thumbnails di dalam popup modal
-            swiperThumbs.removeAllSlides();
-            // dapatkan data slide yg perlu ditampilkan di popup modal
-            // sesuai dgn menu yg dipilih
-            const slideData = targetContainer.querySelectorAll('input[type="hidden"]');
-            // setup isi swiper thumbnails
-            slideData.forEach(item => {
-                const slide = document.createElement('div');
-                slide.classList.add('swiper-slide', 'text-center');
-                slide.innerHTML = `<img src="${item.value}" style="max-height:8rem">`;
-                swiperThumbs.appendSlide(slide);
-            });
-            // reset swiper di dalam popup modal
             swiperMain.removeAllSlides();
-            // setup isi swiper utama
+            console.log('debug 2');
+            const slideData = wrapper.querySelectorAll('.hidden-list input[type="hidden"]');
             slideData.forEach(item => {
-                const slide = document.createElement('div');
-                slide.classList.add('swiper-slide', 'text-center');
-                slide.innerHTML = `<img src="${item.value}" style="max-height:60vh">`;
-                swiperMain.appendSlide(slide);
+              const slide = document.createElement('div');
+              slide.classList.add('swiper-slide', 'text-center');
+              slide.innerHTML = `<img src="${item.value}" style="max-height:70vh">`;
+              swiperMain.appendSlide(slide);
             });
+            console.log('debug 3');
 
+            swiperMain.removeAllSlides();
+            console.log('debug 3');
+            slideData.forEach(item => {
+              const slide = document.createElement('div');
+              slide.classList.add('swiper-slide', 'text-center');
+              slide.innerHTML = `<img src="${item.value}" style="max-height:70vh">`;
+              swiperMain.appendSlide(slide);
+            });
+            console.log('debug 3');
             // inisialisasi dan aplikasikan popup modal gallery scr manual
             // utk menghindari bug swiperjs ketika digabungkan dgn popup modal
-            const menuModal = new bootstrap.Modal(targetSelector);
-            menuModal.toggle();
+            const myModal = new bootstrap.Modal('#modal-project');
+            myModal.toggle();
         });
     });
-})
+})(jQuery);
