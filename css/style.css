@@ -306,6 +306,25 @@ body {
   border: 2px solid #ccc; /* Add a border if desired */
 }
 
+#project .modal .swiper-slide {
+  height: 80vh;
+}
+#project .modal .swiper-slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#project .thumb-container img {
+  height: 100%;
+  width: 100%;
+}
+#project .thumb-container .thumb-img.active {
+  border: 2px solid rgba(0, 102, 255, 0.8);
+}
+
+
 /* portfolio pake splidejs */
 /* .carousel-splidejs .thumbnails {
   display: flex;
