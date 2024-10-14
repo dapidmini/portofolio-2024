@@ -64,8 +64,6 @@
             </a>
             <div class="navbar-nav me-auto py-0">
                 <a href="#project" class="nav-item nav-link">Projects</a>
-                <a href="#team" class="nav-item nav-link">Team</a>
-                <a href="#testimonial" class="nav-item nav-link">Testimonial</a>
                 <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
         </div>
@@ -77,7 +75,7 @@
     <div class="container-fluid my-6 mt-0" id="home">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-6 py-6 pb-0 pt-lg-0">
+                <div class="col-lg-6 py-6 pb-0 pt-lg-0 left-content">
                     <h3 class="text-primary mb-3">Halo, nama saya</h3>
                     <h1 class="display-3 mb-3">David Santana</h1>
                     <h2 class="typed-text-output d-inline"></h2>
@@ -91,7 +89,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img class="img-fluid" src="img/profile.png" alt="">
+                    <img class="image-fluid profile-pic" src="img/profile-1.png" alt="">
                 </div>
             </div>
         </div>
@@ -580,7 +578,7 @@
                     <h1 class="display-5 mb-0">My Projects</h1>
                 </div>
                 <div class="col-lg-8 text-lg-end">
-                    <ul class="list-inline mx-n3 mb-0" id="portfolio-flters">
+                    <ul class="list-inline mx-n3 mb-0" id="portfolio-filters">
                         <li class="mx-2 active" data-filter="*">All Projects</li>
                         <li class="mx-2" data-filter=".first">Web Development</li>
                         <li class="mx-2" data-filter=".second">Graphic Design</li>
@@ -588,9 +586,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.1s">
+            <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.1s" data-masonry='{"percentPosition": true }'>
                 <div class="col-lg-4 col-md-6 portfolio-item first" data-project-title="website gotravelly"
-                data-modal-target="#modal-project">
+                data-modal-target="#modal-project-multiple">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/projects/project-101.png" alt="">
                         <div class="portfolio-btn">
@@ -607,11 +605,14 @@
                             <input type="hidden" name="list-item" value="img/projects/gotravelly-03.png">
                             <input type="hidden" name="list-item" value="img/projects/gotravelly-04.png">
                             <input type="hidden" name="list-item" value="img/projects/gotravelly-05.png">
+                            <input type="hidden" name="list-item" value="img/projects/gotravelly-06.png">
+                            <input type="hidden" name="list-item" value="img/projects/gotravelly-07.png">
+                            <input type="hidden" name="list-item" value="img/projects/gotravelly-08.png">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 portfolio-item first" data-project-title="website kedai kopi"
-                data-modal-target="#modal-project">
+                data-modal-target="#modal-project-multiple">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/projects/project-102.png" alt="">
                         <div class="portfolio-btn">
@@ -627,11 +628,12 @@
                             <input type="hidden" name="list-item" value="img/projects/kedai-kopi-02.png">
                             <input type="hidden" name="list-item" value="img/projects/kedai-kopi-03.png">
                             <input type="hidden" name="list-item" value="img/projects/kedai-kopi-04.png">
+                            <input type="hidden" name="list-item" value="img/projects/kedai-kopi-05.png">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 portfolio-item first" data-project-title="website food happy tummy"
-                data-modal-target="#modal-project">
+                data-modal-target="#modal-project-multiple">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/projects/project-103.png" alt="">
                         <div class="portfolio-btn">
@@ -653,7 +655,7 @@
                 </div>
 
                 <!-- projects bag.graphic design start -->
-                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kelas agama Buddha" data-modal-target="#modal-project">
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kelas agama Buddha" data-modal-target="#modal-project-single">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/projects/project-201.jpg" alt="poster kegiatan kelas Agama Buddha">
                         <div class="portfolio-btn">
@@ -666,7 +668,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kegiatan membaca kitab suci agama Buddha" data-modal-target="#modal-project">
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kegiatan membaca kitab suci agama Buddha" data-modal-target="#modal-project-single">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/projects/project-202.png" alt="poster kegiatan membaca kitab suci agama Buddha">
                         <div class="portfolio-btn">
@@ -679,7 +681,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kegiatan meditasi bersama di vihara" data-modal-target="#modal-project">
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kegiatan meditasi bersama di vihara" data-modal-target="#modal-project-single">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/projects/project-203.png" alt="poster kegiatan meditasi bersama di vihara">
                         <div class="portfolio-btn">
@@ -692,7 +694,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kegiatan meditasi bersama di vihara" data-modal-target="#modal-project">
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kegiatan meditasi bersama di vihara" data-modal-target="#modal-project-single">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/projects/project-204.jpg" alt="poster kegiatan meditasi bersama di vihara">
                         <div class="portfolio-btn">
@@ -705,7 +707,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster upacara ceng beng bersama di vihara" data-modal-target="#modal-project">
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster upacara ceng beng bersama di vihara" data-modal-target="#modal-project-single">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/projects/project-205.jpg" alt="poster upacara ceng beng bersama di vihara">
                         <div class="portfolio-btn">
@@ -718,10 +720,203 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster perayaan Magha Puja di vihara Dhammadipa Surabaya" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-206.png" alt="poster perayaan Magha Puja di vihara Dhammadipa Surabaya">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project poster perayaan Magha Puja di vihara Dhammadipa Surabaya">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-206.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster upacara Pavarana Keluar Vassa Vihara Dhammadipa Surabaya" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-207.png" alt="poster upacara Pavarana Keluar Vassa Vihara Dhammadipa Surabaya">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project poster upacara Pavarana Keluar Vassa Vihara Dhammadipa Surabaya">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-207.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster perayaan detik-detik Waisak" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-208.jpg" alt="poster perayaan detik-detik Waisak">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project poster perayaan detik-detik Waisak">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-208.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kegiatan sanghadana vihara Dhammadipa Surabaya" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-209.jpg" alt="poster kegiatan sanghadana vihara Dhammadipa Surabaya">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project poster kegiatan sanghadana vihara Dhammadipa Surabaya">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-209.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kegiatan sanghadana vihara Dhammadipa Surabaya" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-210.jpg" alt="poster kegiatan sanghadana vihara Dhammadipa Surabaya">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project poster kegiatan sanghadana vihara Dhammadipa Surabaya">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-210.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item second" data-project-title="poster kegiatan meditasi bersama vihara Dhammadipa Surabaya" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-211.png" alt="poster kegiatan meditasi bersama vihara Dhammadipa Surabaya">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project poster kegiatan meditasi bersama vihara Dhammadipa Surabaya">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-211.png">
+                        </div>
+                    </div>
+                </div>
                 <!-- projects bag.graphic design end -->
+
+                <!-- projects bag.translations start -->
+                <div class="col-lg-4 col-md-6 portfolio-item third" data-project-title="translasi video youtube tentang Teresa Teng" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-301.jpg" alt="translasi video youtube tentang Teresa Teng">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project translasi video youtube tentang Teresa Teng">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://www.youtube.com/watch?v=I_wVMc0Ke0A" title="video youtube tentang Teresa Teng" target="_blank">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-301.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third" data-project-title="translasi video youtube tentang kisah Perjalanan ke Barat (Sun Go Kong)" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-302.jpg" alt="translasi video youtube tentang kisah Perjalanan ke Barat (Sun Wukong)">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project translasi video youtube tentang kisah Perjalanan ke Barat (Sun Wukong)">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://www.youtube.com/watch?v=I_wVMc0Ke0A" title="video youtube tentang kisah perjalanan ke barat (sun Wukong)" target="_blank">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-302.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third" data-project-title="translasi video youtube tentang GENGHIS KHAN" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-303.jpg" alt="translasi video youtube tentang GENGHIS KHAN">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project translasi video youtube tentang GENGHIS KHAN">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://www.youtube.com/watch?v=TF7-cBXEDHA" title="video youtube tentang GENGHIS KHAN" target="_blank">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-303.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third" data-project-title="translasi video youtube tentang Kaisar Yongle" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-304.jpg" alt="translasi video youtube tentang Kaisar Yongle">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project translasi video youtube tentang Kaisar Yongle">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://www.youtube.com/watch?v=uBd72bEC5io" title="video youtube tentang GENGHIS KHAN" target="_blank">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-304.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third" data-project-title="translasi video youtube tentang pembantaian nanking" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-305.jpg" alt="translasi video youtube tentang pembantaian nanking">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project translasi video youtube tentang pembantaian nanking">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://www.youtube.com/watch?v=0q7YzisPte0" title="video youtube tentang pembantaian nanking" target="_blank">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-305.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third" data-project-title="translasi video youtube tentang John Rabe" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-306.jpg" alt="translasi video youtube tentang John Rabe">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project translasi video youtube tentang John Rabe">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://www.youtube.com/watch?v=bo1GGpiSgxI" title="video youtube tentang John Rabe" target="_blank">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-306.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third" data-project-title="translasi video youtube tentang sejarah kopi di tiongkok" data-modal-target="#modal-project-single">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/projects/project-307.jpg" alt="translasi video youtube tentang sejarah kopi di tiongkok">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" type="button" title="Preview Project translasi video youtube tentang sejarah kopi di tiongkok">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://www.youtube.com/watch?v=vKjaUj-4FQg" title="video youtube tentang GENGHIS KHAN" target="_blank">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                        <div class="hidden-list">
+                            <input type="hidden" name="list-item" value="img/projects/project-307.jpg">
+                        </div>
+                    </div>
+                </div>
+                <!-- projects bag.translations end -->
             </div>
 
-            <div class="modal" tabindex="-1" id="modal-project">
+            <div class="modal" tabindex="-1" id="modal-project-multiple">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -748,129 +943,24 @@
                 </div>
             </div>
             <!-- /.modal-project -->
+
+            <div class="modal fade" id="modal-project-single" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                    </div>
+                </div>
+            </div>
     
         </div>
     </div>
     <!-- Projects End -->
-
-
-    <!-- Team Start -->
-    <div class="container-xxl py-6 pb-5" id="team">
-        <div class="container">
-            <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="col-lg-6">
-                    <h1 class="display-5 mb-0">Team Members</h1>
-                </div>
-                <div class="col-lg-6 text-lg-end">
-                    <a class="btn btn-primary py-3 px-5" href="">Contact Us</a>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item position-relative">
-                        <img class="img-fluid rounded" src="img/team-1.jpg" alt="">
-                        <div class="team-text bg-white rounded-end p-4">
-                            <div>
-                                <h5>Full Name</h5>
-                                <span>Designer</span>
-                            </div>
-                            <i class="fa fa-arrow-right fa-2x text-primary"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item position-relative">
-                        <img class="img-fluid rounded" src="img/team-2.jpg" alt="">
-                        <div class="team-text bg-white rounded-end p-4">
-                            <div>
-                                <h5>Full Name</h5>
-                                <span>Designer</span>
-                            </div>
-                            <i class="fa fa-arrow-right fa-2x text-primary"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item position-relative">
-                        <img class="img-fluid rounded" src="img/team-3.jpg" alt="">
-                        <div class="team-text bg-white rounded-end p-4">
-                            <div>
-                                <h5>Full Name</h5>
-                                <span>Designer</span>
-                            </div>
-                            <i class="fa fa-arrow-right fa-2x text-primary"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
-
-
-    <!-- Testimonial Start -->
-    <div class="container-fluid bg-light py-5 my-5" id="testimonial">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Testimonial</h1>
-            <div class="row justify-content-center">
-                <div class="col-lg-3 d-none d-lg-block">
-                    <div class="testimonial-left h-100">
-                        <img class="img-fluid wow fadeIn" data-wow-delay="0.1s" src="img/testimonial-1.jpg" alt="">
-                        <img class="img-fluid wow fadeIn" data-wow-delay="0.3s" src="img/testimonial-2.jpg" alt="">
-                        <img class="img-fluid wow fadeIn" data-wow-delay="0.5s" src="img/testimonial-3.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="owl-carousel testimonial-carousel">
-                        <div class="testimonial-item text-center">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle border border-secondary p-2 mx-auto" src="img/testimonial-1.jpg" alt="">
-                                <div class="testimonial-icon">
-                                    <i class="fa fa-quote-left text-primary"></i>
-                                </div>
-                            </div>
-                            <p class="fs-5 fst-italic">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.</p>
-                            <hr class="w-25 mx-auto">
-                            <h5>Client Name</h5>
-                            <span>Profession</span>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle border border-secondary p-2 mx-auto" src="img/testimonial-2.jpg" alt="">
-                                <div class="testimonial-icon">
-                                    <i class="fa fa-quote-left text-primary"></i>
-                                </div>
-                            </div>
-                            <p class="fs-5 fst-italic">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.</p>
-                            <hr class="w-25 mx-auto">
-                            <h5>Client Name</h5>
-                            <span>Profession</span>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle border border-secondary p-2 mx-auto" src="img/testimonial-3.jpg" alt="">
-                                <div class="testimonial-icon">
-                                    <i class="fa fa-quote-left text-primary"></i>
-                                </div>
-                            </div>
-                            <p class="fs-5 fst-italic">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.</p>
-                            <hr class="w-25 mx-auto">
-                            <h5>Client Name</h5>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 d-none d-lg-block">
-                    <div class="testimonial-right h-100">
-                        <img class="img-fluid wow fadeIn" data-wow-delay="0.1s" src="img/testimonial-1.jpg" alt="">
-                        <img class="img-fluid wow fadeIn" data-wow-delay="0.3s" src="img/testimonial-2.jpg" alt="">
-                        <img class="img-fluid wow fadeIn" data-wow-delay="0.5s" src="img/testimonial-3.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
 
 
     <!-- Contact Start -->
@@ -974,6 +1064,9 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

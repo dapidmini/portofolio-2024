@@ -101,10 +101,10 @@
     // Portfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
+        percentPosition: true,
     });
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('active');
+    $('#portfolio-filters li').on('click', function () {
+        $("#portfolio-filters li").removeClass('active');
         $(this).addClass('active');
 
         portfolioIsotope.isotope({filter: $(this).data('filter')});
@@ -122,129 +122,95 @@
 
 
     // Start custom js by david santana
-    // const modalTriggerButtons = document.querySelectorAll('[data-modal-target]');
-    // modalTriggerButtons.forEach(elem => {
-    //     elem.addEventListener('click', function() {
-    //         // inisialisasi dan aplikasikan popup modal gallery scr manual
-    //         // utk menghindari bug swiperjs ketika digabungkan dgn popup modal
-    //         const myModal = new bootstrap.Modal('#modal-project');
-    //         myModal.toggle();
-
-    //         // carousel splidejs
-    //         var splide = new Splide( '.main-carousel', {
-    //             pagination: false,
-    //         });
-
-    //         var thumbnails = document.getElementsByClassName( 'thumbnail' );
-    //         var current;
-
-    //         console.log('thumbnails', thumbnails);
-    //         for ( var i = 0; i < thumbnails.length; i++ ) {
-    //             initThumbnail( thumbnails[ i ], i );
-    //         }
-
-    //         function initThumbnail( thumbnail, index ) {
-    //             thumbnail.addEventListener( 'click', function () {
-    //                 splide.go( index );
-    //             });
-    //         }
-
-    //         splide.on( 'mounted move', function () {
-    //             var thumbnail = thumbnails[ splide.index ];
-              
-    //             if ( thumbnail ) {
-    //                 if ( current ) {
-    //                     current.classList.remove( 'is-active' );
-    //                 }
-                
-    //                 thumbnail.classList.add( 'is-active' );
-    //                 current = thumbnail;
-    //             }
-    //         });
-
-    //         splide.mount();
-    //     });
-    // });
-    
-    const modalTriggerButtons = document.querySelectorAll('[data-modal-target]');
+    const modalTriggerButtons = document.querySelectorAll('[data-modal-target] [type="button"]');
     modalTriggerButtons.forEach(elem => {
         elem.addEventListener('click', function(e) {
+            const wrapper = elem.closest('[data-project-title]');
+
+            let modalSelector = '';
+            if (wrapper.classList.contains('first')) {
+                modalSelector = '#modal-project-multiple';
+            } else {
+                modalSelector = '#modal-project-single';
+            }
             // inisialisasi dan aplikasikan popup modal gallery scr manual
             // utk menghindari bug swiperjs ketika digabungkan dgn popup modal
-            const myModal = new bootstrap.Modal('#modal-project');
+            const myModal = new bootstrap.Modal(modalSelector);
             myModal.toggle();
 
-            const wrapper = elem.closest('[data-project-title]');
             const projectTitle = wrapper.getAttribute('data-project-title');
-            const modalElem = document.querySelector('.modal#modal-project');
+            const modalElem = document.querySelector(modalSelector);
             const modalTitle = modalElem.querySelector('.modal-title');
             modalTitle.innerHTML = projectTitle;
             modalTitle.classList.add('text-capitalize');
 
+            if (wrapper.classList.contains('first')) {
+                var swiperMain = new Swiper(".swiper-main", {
+                    slidesPerView: 1,
+                    autoplay: false,
+                    loop: true,
+                    spaceBetween: 10,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                });
+            
+                swiperMain.removeAllSlides();
+                const slideData = wrapper.querySelectorAll('.hidden-list input[type="hidden"]');
+                slideData.forEach(item => {
+                    const slide = document.createElement('div');
+                    slide.classList.add('swiper-slide', 'text-center');
+                    slide.innerHTML = `<img src="${item.value}">`;
+                    swiperMain.appendSlide(slide);
+                });
 
-            var swiperMain = new Swiper(".swiper-main", {
-                slidesPerView: 1,
-                autoplay: false,
-                loop: true,
-                spaceBetween: 10,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-            });
-        
-            swiperMain.removeAllSlides();
-            const slideData = wrapper.querySelectorAll('.hidden-list input[type="hidden"]');
-            slideData.forEach(item => {
-              const slide = document.createElement('div');
-              slide.classList.add('swiper-slide', 'text-center');
-              slide.innerHTML = `<img src="${item.value}">`;
-              swiperMain.appendSlide(slide);
-            });
 
+                const thumbContainer = document.querySelector('.thumb-container');
+                thumbContainer.innerHTML = '';
+                const images = document.querySelectorAll('.swiper .swiper-slide img');
+                images.forEach((image, index) => {
+                    const div = document.createElement('div');
+                    div.classList.add('thumb-img', 'col-4');
+                    if (index == 0) {
+                        div.classList.add('active');
+                    }
+                    // const img = document.createElement('img');
+                    // img.setAttribute('src', image.getAttribute('src'));
+                    div.innerHTML = image.outerHTML;
+                    thumbContainer.appendChild(div);
+                });
 
-            const thumbContainer = document.querySelector('.thumb-container');
-            const images = document.querySelectorAll('.swiper .swiper-slide img');
-            images.forEach((image, index) => {
-              const div = document.createElement('div');
-              div.classList.add('thumb-img', 'col-4');
-              if (index == 0) {
-                div.classList.add('active');
-              }
-              // const img = document.createElement('img');
-              // img.setAttribute('src', image.getAttribute('src'));
-              div.innerHTML = image.outerHTML;
-              thumbContainer.appendChild(div);
-            });
-
-            const thumbImages = thumbContainer.querySelectorAll('.thumb-img');
-            thumbImages.forEach((thumb, index) => {
-                thumb.addEventListener('mouseover', function(e) {
-                    // hapus class 'active' dr semua .thumb-img
-                    const allElems = thumbContainer.querySelectorAll('.thumb-img');
-                    allElems.forEach(elem => {
-                        elem.classList.remove('active');
+                const thumbImages = thumbContainer.querySelectorAll('.thumb-img');
+                thumbImages.forEach((thumb, index) => {
+                    thumb.addEventListener('mouseover', function(e) {
+                        // hapus class 'active' dr semua .thumb-img
+                        const allElems = thumbContainer.querySelectorAll('.thumb-img');
+                        allElems.forEach(elem => {
+                            elem.classList.remove('active');
+                        });
+                        this.classList.add('active');
                     });
-                    this.classList.add('active');
+                    thumb.addEventListener('click', function(e) {
+                        swiperMain.slideTo(index);
+                    });
                 });
-                thumb.addEventListener('click', function(e) {
-                    swiperMain.slideTo(index);
+            } else {
+                const modalBody = modalElem.querySelector('.modal-body');
+                modalBody.innerHTML = '';
+                const listItem = wrapper.querySelectorAll('.hidden-list input[type="hidden"]');
+                listItem.forEach(item => {
+                    const img = document.createElement('img');
+                    img.src = item.value;
+                    modalBody.appendChild(img);
                 });
-            });
+            }
 
-            // swiperMain.removeAllSlides();
-            // console.log('debug 3');
-            // slideData.forEach(item => {
-            //   const slide = document.createElement('div');
-            //   slide.classList.add('swiper-slide', 'text-center');
-            //   slide.innerHTML = `<img src="${item.value}" style="max-height:70vh">`;
-            //   swiperMain.appendSlide(slide);
-            // });
-            // console.log('debug 3');
         });
     });
+    // end modalTriggerButtons.forEach
 })(jQuery);
